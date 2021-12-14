@@ -1,0 +1,57 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}          
+\usepackage{graphicx}
+\usepackage{amsthm, amsmath, amssymb}
+\usepackage{setspace}\onehalfspacing
+\usepackage[loose,nice]{units} 
+\usepackage{hyperref}
+
+\title{ASTE 404, Report for Assignment 9}
+\author{Parham Nojoumian}
+\date{Fall 2021}
+ 
+\begin{document}
+\maketitle
+
+\section{Code}
+A custom class was implemented in C++ for creating three-dimensional vectors. Operator overloading was used to allow for vector addition and subtraction operations, and functions were implemented to calculate the dot product of two vectors and to calculate the magnitude of a vector. 
+
+\section{Unit Testing}
+To check the functionality of these vector operations/functions, unit tests were done for the addition and subtraction operations, and for the dot product. These tests were done using the Google Test (GTest) framework. A snapshot of the results of these tests is shown in Figure 1.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\linewidth]{../../../../../../../GTest.png}
+\caption{Screenshot of GTest results}
+\end{figure}
+
+A special class, VecTestClass, was used as a test fixture to test the vec3 class. Specifically, for two 3D vectors double3 $a$ and double3 $b$, the operations $a + b$, $a - b$, and $a \cdot b $ were tested.
+
+
+This portion of the assignment took a long time to complete. I struggled to use Google Test, because my compiler (XCode) could not find the header "gtest/gtest.h". I found that the way to do this is to download the GTest library from Github (through the command: git clone repository URL), to install cmake through Homebrew, and to then use cmake to create a "framework" for GTest through the Mac terminal; afterwards the framework can be added to your XCode project in the project build settings. 
+Refer to "https://www.jetbrains.com/help/objc/creating-google-test-run-debug-configuration-for-test.html" to use Google Test on a Mac.
+
+\section{Documentation}
+Once unit tests were completed, a user manual for the structure and logic behind the code was created through Doxygen. 
+For this assignment, Doxygen was downloaded as a GUI application (because my computer is a MacBookPro). To include math formulas in the documentation, I installed the latest TeX distribution. However, for some reason my \LaTeX\  formulas were not converted to math formulas in the generated html; however, they \emph{were} converted when I generated a pdf (through the Mac terminal). Figure 2 shows the portion of this user manual corresponding to the mag() function:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\linewidth]{../../../../../../../mag.png}
+\caption{A portion of the user manual for the code, generated via Doxygen}
+\end{figure}
+
+\section{Version Control}
+\href{https://github.com/Parham2000/ASTE-404-Test.git}{Github} was used to implement version control; a snapshot of the Github repository for the code relevant to this report is shown in Figure 3.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.55\linewidth]{../../../../../../../github.png}
+\caption{The Github repository used to track different versions of the code}
+\end{figure}
+
+\section{Latex Report}
+In addition to the user manual and git repository, this report has been prepared to document the documentation of this project; \LaTeX\ was used to generate this report (through TeXShop on Mac); the TeX file can be found in the git repository \href{https://github.com/Parham2000/ASTE-404-Test.git}{Github} (click to visit page).
+
+
+\end{document}
